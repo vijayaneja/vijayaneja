@@ -1,0 +1,86 @@
+{
+  "name": "mhb-app-service-policies",
+  "type": "Microsoft.Authorization/policySetDefinitions",
+  "apiVersion": "2021-06-01",
+  "scope": null,
+  "properties": {
+    "policyType": "Custom",
+    "displayName": "mhb-app-service-policyinitiative",
+    "description": "Group of policies in app-service category",
+    "metadata": {
+      "version": "1.0.0",
+      "category": "App Service"
+    },
+    "parameters": {
+      "ftps_only_in_func_app_effect": {
+        "metadata": {
+          "displayName": "FTPS only should be required in your Function App",
+          "description": "Enable FTPS enforcement for enhanced security"
+        },
+        "type": "String",
+        "defaultValue": "AuditIfNotExists",
+        "allowedValues": [
+          "AuditIfNotExists",
+          "Disabled"
+        ]
+      },
+      "ftps_required_in_web_app_effect": {
+        "metadata": {
+          "displayName": "FTPS should be required in your Web App",
+          "description": "Enable FTPS enforcement for enhanced security"
+        },
+        "type": "String",
+        "defaultValue": "AuditIfNotExists",
+        "allowedValues": [
+          "AuditIfNotExists",
+          "Disabled"
+        ]
+      },
+      "ftps_only_in_api_app_effect": {
+        "type": "String",
+        "defaultValue": "AuditIfNotExists",
+        "allowedValues": [
+          "AuditIfNotExists",
+          "Disabled"
+        ],
+        "metadata": {
+          "displayName": "FTPS only should be required in your API App",
+          "description": "Enable FTPS enforcement for enhanced security"
+        }
+      }      
+    },
+    "policyDefinitions": [
+      {
+        "policyDefinitionReferenceId": "ftps_only_in_func_app_effect",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/399b2637-a50f-4f95-96f8-3a145476eb15",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('ftps_only_in_func_app_effect')]"
+          }
+        },
+        "groupNames": []
+      },
+      {
+        "policyDefinitionReferenceId": "ftps_required_in_web_app_effect",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/4d24b6d4-5e53-4a4f-a7f4-618fa573ee4b",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('ftps_required_in_web_app_effect')]"
+          }
+        },
+        "groupNames": []
+      },
+      {
+        "policyDefinitionReferenceId": "ftps_only_in_api_app_effect",
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9a1b8c48-453a-4044-86c3-d8bfd823e4f5",
+        "parameters": {
+          "effect": {
+            "value": "[parameters('ftps_only_in_api_app_effect')]"
+          }
+        },
+        "groupNames": []
+      }      
+    ],
+    "policyDefinitionGroups": null
+  }
+}

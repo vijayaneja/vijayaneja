@@ -1,0 +1,20 @@
+{
+    "es_test_archetype1": {
+        "policy_assignments": [
+            "FTPS only in Func App"
+        ],
+        "policy_definitions": [],
+        "policy_set_definitions": [],
+        "role_definitions": [],
+        "archetype_config": {
+            "parameters": {},
+            "access_control": {
+                "Virtual Machine Contributor": [                    
+                    "331ffa51-d7c2-4c25-9335-89ee061330bf",                    
+                    "2ea1c34b-dc6d-4bf8-9e03-30081b8f5ae2"                                       
+                ]
+            },
+            "_comment": "331ffa51-d7c2-4c25-9335-89ee061330bf = 331ffa51-d7c2-4c25-9335-89ee061330bf, 331ffa51-d7c2-4c25-9335-89ee061330bf = 331ffa51-d7c2-4c25-9335-89ee061330bf"
+        }
+    }
+}
